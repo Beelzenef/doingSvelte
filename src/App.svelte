@@ -1,10 +1,19 @@
 <script>
 	export let name;
+	import Credits from './cmps/Credits.svelte';
+
+	function showAlert() {
+		alert("surprise!");
+	}
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<button on:click={showAlert}>
+		press me!
+	</button>
+	<Credits/>
 </main>
 
 <style>
