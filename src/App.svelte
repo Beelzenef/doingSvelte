@@ -2,8 +2,16 @@
 	export let name;
 	import Credits from './cmps/Credits.svelte';
 
+	let pulsaPrimeraVez = "Pulsa por primera vez";
+	let pulsaOtraVez = "Pulsa otra vez";
+	let pulsaciones = 0;
+
 	function showAlert() {
 		alert("surprise!");
+	}
+
+	function pulsarBoton() {
+		pulsaciones++;
 	}
 </script>
 
@@ -12,6 +20,14 @@
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<button on:click={showAlert}>
 		press me!
+	</button>
+	<p>Operador ternario dentro de contenido de elementos</p>
+	<button on:click={pulsarBoton}>
+		{ pulsaciones === 0 ? pulsaPrimeraVez : pulsaOtraVez }
+	</button>
+	<p>Llamando a métodos con operador ternario</p>
+	<button on:click={pulsarBoton}>
+		{ pulsaciones === 4 ? showAlert() : "awesome" }
 	</button>
 	<Credits/>
 </main>
